@@ -40,7 +40,7 @@ $ ls supplier-data/
 
 ## Work with supplier images
 
-- filename : changeImage.py
+- filename : `changeImage.py`
 - goals:
   - size : 3000x2000 to 600x400 pixel
   - format : .tiff to .jpeg
@@ -56,25 +56,61 @@ $ file ~/supplier-data/images/003.jpeg
 
 ## Upload Images to web server
 
-- filename : example_upload.py
+- filename : `example_upload.py`
 - goals:
   - upload a file using requests module
-  - file upload url 'http://localhost/upload/'
+  - file upload url [http://localhost/upload/]
   - grant executable permission to this file and run it
-  - file check url 'http://localhost/media/images'
+  - file check url [http://localhost/media/images]
 
 ```zsh
 $ sudo chmod +x ~/example_upload.py
 $ ./example_upload.py
-# check if file is uploaded to the web server using file check url 
+# check if file is uploaded to the web server using file check url
 ```
 
-- filename : supplier_image_upload.py
+### upload supplier images to web server
+
+- filename : `supplier_image_upload.py`
 - goals:
   - upload all processed jpeg files to web server fruit catalog
   - grant executable permission to this file and run it
+
 ```zsh
 $ sudo chmod +x ~/supplier_image_upload.py
 $ ./supplier_image_upload.py
 # refresh the file check url and check for uploaded images
+```
+
+## Upload description of the images
+
+- goals:
+  - check url [http://locahost/]
+  - upload url [http://localhost/fruits]
+  - enter test fruit content into content field in fruit catalog web-server
+  - click on post button and visit check url for uploaded fruit
+
+```json
+{
+  "name": "Test Fruit",
+  "weight": 100,
+  "description": "This is the description of my test fruit",
+  "image_name": "icon.sheet.png"
+}
+```
+
+### Create script to automate uploading descriptions
+
+- filename : `run.py`
+- goals:
+  - script should return data in a json dictionary
+  - convert lines int .txt file to following fields
+  - fields: name, weight, description and image_name
+  - iterate over all images and post them to web-server via upload url
+  - grant executable permission to this file and run it
+
+```zsh
+$ sudo chmod +x ~/run.py
+$ ./run.py
+# check for uploaded descriptions in web-server at check url
 ```
