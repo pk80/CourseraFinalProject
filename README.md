@@ -68,3 +68,13 @@ $ sudo chmod +x ~/example_upload.py
 $ ./example_upload.py
 # check if file is uploaded to the web server using file check url 
 ```
+
+- filename : supplier_image_upload.py
+- goals:
+  - upload all processed jpeg files to web server fruit catalog
+  - grant executable permission to this file and run it
+```zsh
+$ sudo chmod +x ~/supplier_image_upload.py
+$ ./supplier_image_upload.py
+# refresh the file check url and check for uploaded images
+```
