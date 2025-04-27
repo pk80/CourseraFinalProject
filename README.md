@@ -38,10 +38,33 @@ $ ls supplier-data/
 ... descriptions images
 ```
 
-## Working with supplier images
+## Work with supplier images
 
 - filename : changeImage.py
 - goals:
   - size : 3000x2000 to 600x400 pixel
   - format : .tiff to .jpeg
+  - grant executable permission to this file and run it
 
+```zsh
+$ sudo chmod +x ~/changeImage.py
+$ ./changeImage.py
+# check the specification of images
+$ file ~/supplier-data/images/003.jpeg
+...
+```
+
+## Upload Images to web server
+
+- filename : example_upload.py
+- goals:
+  - upload a file using requests module
+  - file upload url 'http://localhost/upload/'
+  - grant executable permission to this file and run it
+  - file check url 'http://localhost/media/images'
+
+```zsh
+$ sudo chmod +x ~/example_upload.py
+$ ./example_upload.py
+# check if file is uploaded to the web server using file check url 
+```
