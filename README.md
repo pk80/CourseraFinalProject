@@ -22,6 +22,7 @@ Finally, in parallel to the automation running, we want to check the health of t
 ## Fetch supplier data
 
 ```zsh
+$ ls -l ~/
 $ sudo chmod +x download_bucket_file.sh
 $ ./download_bucket_file.sh
 $ ls
@@ -113,4 +114,24 @@ $ ./supplier_image_upload.py
 $ sudo chmod +x ~/run.py
 $ ./run.py
 # check for uploaded descriptions in web-server at check url
+```
+
+## Generate PDF and Send to an email
+
+- filename: `reports.py`
+- goals:
+  - generate a pdf file to send to supplier once images & descriptions are uploaded to web-server using reportlab module/library
+  - complete the script
+  - content :
+
+```txt
+<b>Processed Update on <Today's date></b>
+[blank line]
+name: Apple
+weight: 500 lbs
+[blank line]
+name: Avocado
+weight: 200 lbs
+[blank line]
+...
 ```
