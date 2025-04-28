@@ -122,7 +122,7 @@ $ ./run.py
 - goals:
   - generate a pdf file to send to supplier once images & descriptions are uploaded to web-server using reportlab module/library
   - complete the script
-  - content :
+  - content should look like:
 
 ```txt
 <b>Processed Update on <Today's date></b>
@@ -134,4 +134,26 @@ name: Avocado
 weight: 200 lbs
 [blank line]
 ...
+```
+
+### Process supplier fruit description data
+
+- filename: `emails.py`
+- goals:
+  - create script with following email methods:
+    - generate_email() -> email with attachment
+    - generate_error_email() -> email without attachment
+    - send_email() -> sends message to configured SMTP server
+
+- filename: `report_email.py`
+- goals:
+  - to process this use os, datetime and reports libraries
+  - text data from descriptions to above mentioned content format
+  - generate summary for sending mail and semd email
+  - grant executable permission and run 
+
+```zsh
+$ sudo chmod +x ~/report_email.py
+$ ./report_email.py
+# check webmail for new messages with attachment
 ```
