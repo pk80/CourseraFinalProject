@@ -140,6 +140,7 @@ weight: 200 lbs
 
 - filename: `emails.py`
 - goals:
+
   - create script with following email methods:
     - generate_email() -> email with attachment
     - generate_error_email() -> email without attachment
@@ -150,10 +151,58 @@ weight: 200 lbs
   - to process this use os, datetime and reports libraries
   - text data from descriptions to above mentioned content format
   - generate summary for sending mail and semd email
-  - grant executable permission and run 
+  - grant executable permission and run
 
 ```zsh
 $ sudo chmod +x ~/report_email.py
 $ ./report_email.py
 # check webmail for new messages with attachment
+```
+
+## Health Check
+
+- filename: `health_check.py`
+- goals:
+  - run this script in the background
+  - monitor system statistics
+    - CPU usage,
+    - disk space,
+    - available memory and
+    - name resolution
+  - send email if there are problems (errors) like
+    - if CPU usage is over 80%
+    - if available disk space is lower than 20%
+    - if available memeory is less than 100MB
+    - if hostname 'localhost' cannot be resolved to '127.0.0.1'
+  - complete the script
+  - grant executable permission fo the file and run it
+
+```zsh
+$ sudo chmod +x ~/health_check.py
+$ ./health_check.py
+# check webmail for new messages with errors
+```
+
+### Test your script
+
+- to maximize cpu utilization install stress and run
+- later kill the stress process which is running in the background
+
+```zsh
+$ sudo apt install stress
+$ stress -cpu 8 &
+# allow stress test to run in the background
+# now run health_check and check the mail box for cpu error message
+$ ./health_check.py
+$ jobs -l
+...
+$ kill [process-id]
+```
+
+- set cron job that executes health_check every 60secs and sends health status
+
+```zsh
+$ crontab -e
+# crontab in nano will open
+# set the complete path for health_check.py script
 ```
